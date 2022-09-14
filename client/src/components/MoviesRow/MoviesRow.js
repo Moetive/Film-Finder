@@ -1,15 +1,15 @@
 import React from "react";
 import { Col } from "antd";
 
-function MovieRows(props) {
+function MoviesRows(props) {
     return (
-        <Col lg={6} md={8} xs={24}>
+        <Col lg={4} md={4} xs={0}>
             <div style={{position: 'relative'}}>
             <a href={`/movie/${props.movieId}`}>
-            <img style = {{width: '100%', height:'320px'}} alt="img" src={props.image} />
+            <img style = {{width: '30%', height:'320px'}} alt="img" src={props.image} />
             </a>
             </div>
         </Col>
     )
 }
-export default MovieRows
+export default MoviesRows
