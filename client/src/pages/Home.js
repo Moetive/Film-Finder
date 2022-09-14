@@ -4,7 +4,7 @@ import { API_URL, API_KEY, IMAGE_URL, BANNER_URL } from "../components/config";
 import ImageComp from "../components/ImageComponent/ImageComp";
 // import Button from '@mui/material/Button';
 import { Typography, Row } from "antd";
-import MovieRow from "../components/MoviesRow/MoviesRow";
+import MoviesRow from "../components/MoviesRow/MoviesRow";
 // import Grid from '@mui/material/Grid';
 // import FormLabel from '@mui/material/FormLabel';
 // import FormControl from '@mui/material/FormControl';
@@ -42,17 +42,18 @@ const Home = () => {
       </div>
 
       {/* </div> */}
-      <div style={{ width: "70%", margin: "1rem auto" }}>
-        <button className="btn btn-lg btn-light m-2">Load More</button>
+      <div style={{ width: "80%", margin: "1rem auto" }}>
+        
         <hr />
-
-        <Row gutter={[16, 16]}>
+        
+        
+        <Row gutter={[0, 0]}>
           {Movies &&
             Movies.map((movie, index) => (
               <React.Fragment key={index}>
-                <MovieRow
+                <MoviesRow
                   image={
-                    movie.poster_path && `${IMAGE_URL}w500${movie.poster_path}`
+                    movie.poster_path && `${IMAGE_URL}${movie.poster_path}`
                   }
                   movieId={movie.id}
                 />
@@ -62,9 +63,13 @@ const Home = () => {
 
         {/* </div> */}
 
-                  
-      </div>
+      <hr/>
+    <button className="btn btn-lg btn-light m-2">Load More</button>                  
+    </div>
     </main>
+    
+   
+    
   );
 };
 
