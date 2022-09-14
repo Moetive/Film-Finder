@@ -11,20 +11,26 @@ A full stack application that allows users to search for their favorite films.
 
 ## Contributor(s)
 
- Dylan
-- https://github.com/dhuw
+- Mohamed
+<br/>https://github.com/moetive
+
+- Dylan
+<br/>https://github.com/dhuw
+
+- Matt
+<br/>https://github.com/Shiver750
 
 ## User Story 
 
-AS a , I WANT to , SO THAT  
+AS an avid movie watcher, I WANT a web application to find movies, SO THAT I am able to see which movies are interesting to me.
 
 #### Who are we building this for? 
-
+We are building this app for film lovers that want a way to organize and find their next favorite film
 
 
 
 #### What is the user trying to achieve? 
-
+Users want to find films they want to watch and then be able to make a list of movies they like/dislike
 
 
 
