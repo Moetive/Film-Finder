@@ -15,6 +15,7 @@ import SingleThought from './pages/SingleThought';
 import Profile from './pages/Profile';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import MoviePage from './pages/MoviePage';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -69,8 +70,7 @@ function App() {
                 element={<Profile />}
               />
               <Route 
-                path="/thoughts/:thoughtId" 
-                element={<SingleThought />}
+                path="/movie/:movieId" component={(MoviePage, false)}
               />
             </Routes>
           </div>

@@ -42,7 +42,7 @@ const Home = () => {
       </div>
 
       {/* </div> */}
-      <div style={{ width: "70%", margin: "0" }}>
+      <div style={{ width: "70%", margin: "1rem auto" }}>
         <button className="btn btn-lg btn-light m-2">Load More</button>
         <hr />
 
