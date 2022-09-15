@@ -69,9 +69,7 @@ function App() {
                 path="/profiles/:username" 
                 element={<Profile />}
               />
-              <Route 
-                path="/movie/:movieId" component={(MoviePage, false)}
-              />
+               <Route exact path="/movie/:movieId" element={(MoviePage, null)} />
             </Routes>
           </div>
           <Footer />
