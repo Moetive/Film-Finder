@@ -1,6 +1,7 @@
 import React, { useEffect, useState, initialState } from "react";
 // import { useQuery } from "@apollo/client";
 import { API_URL, API_KEY, IMAGE_URL, BANNER_URL } from "../components/config";
+
 import ImageComp from "../components/ImageComponent/ImageComp";
 import { Typography, Row, Col } from "antd";
 import MoviesRow from "../components/MoviesRow/MoviesRow";
@@ -9,14 +10,24 @@ const { Title } = Typography;
 const Home = () => {
   const [state, SetState] = useState(initialState);
   const [Movies, setMovies] = useState([]);
+  const [Page, setPage] = useState(initialState);
   useEffect(() => {
-    fetch(`${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
+    const refresh = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`
+    refreshMovies(refresh);
+  }, [])
+    const refreshMovies = (path) =>{
+      fetch(path)
       .then((response) => response.json())
       .then((response) => {
         console.log(response);
         setMovies(response.results);
+        setPage(response.page)
       });
-  }, []);
+  }
+  const loadMore = () => {
+    const refresh = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${Page + 1}`
+    refreshMovies(refresh);
+  }
   return (
     <main>
       <div>
@@ -35,6 +46,7 @@ const Home = () => {
 
       {/* </div> */}
       <div style={{  width: "100%", margin: "1rem auto" }}>
+      
         
         <hr />
         
@@ -58,7 +70,9 @@ const Home = () => {
       
 
       <hr/>
-    <button className="btn btn-lg btn-light m-2">Load More</button>                  
+      <button onClick={loadMore} className="btn btn-lg btn-light m-2">
+  Load More
+</button>
     </div>
     </main>
     
