@@ -30,6 +30,9 @@ const Home = () => {
   }
   return (
     <main>
+      <div style={{position:'center'}}> <h1 style={{textAlign: "center"}}>Featured Movie</h1>
+      
+      </div>
       <div>
         {/* <div
           className="col-12 col-md-10 mb-3 p-3"
@@ -43,13 +46,14 @@ const Home = () => {
           />
         )}
       </div>
-
+      
       {/* </div> */}
       <div style={{  width: "100%", margin: "1rem auto" }}>
       
-        
         <hr />
-        
+        <button onClick={loadMore} className="btn btn-lg btn-light m-2">
+  Refresh
+</button>
         
         {/* <Row gutter={[16, 16]}> */}
           {Movies &&
@@ -71,7 +75,7 @@ const Home = () => {
 
       <hr/>
       <button onClick={loadMore} className="btn btn-lg btn-light m-2">
-  Load More
+  Refresh
 </button>
     </div>
     </main>
