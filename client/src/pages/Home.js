@@ -2,16 +2,8 @@ import React, { useEffect, useState, initialState } from "react";
 // import { useQuery } from "@apollo/client";
 import { API_URL, API_KEY, IMAGE_URL, BANNER_URL } from "../components/config";
 import ImageComp from "../components/ImageComponent/ImageComp";
-// import Button from '@mui/material/Button';
-import { Typography, Row } from "antd";
+import { Typography, Row, Col } from "antd";
 import MoviesRow from "../components/MoviesRow/MoviesRow";
-// import Grid from '@mui/material/Grid';
-// import FormLabel from '@mui/material/FormLabel';
-// import FormControl from '@mui/material/FormControl';
-// import FormControlLabel from '@mui/material/FormControlLabel';
-// import RadioGroup from '@mui/material/RadioGroup';
-// import Radio from '@mui/material/Radio';
-// import Paper from '@mui/material/Paper';
 const { Title } = Typography;
 
 const Home = () => {
@@ -42,26 +34,28 @@ const Home = () => {
       </div>
 
       {/* </div> */}
-      <div style={{ width: "80%", margin: "1rem auto" }}>
+      <div style={{  width: "100%", margin: "1rem auto" }}>
         
         <hr />
         
         
-        <Row gutter={[0, 0]}>
+        {/* <Row gutter={[16, 16]}> */}
           {Movies &&
             Movies.map((movie, index) => (
               <React.Fragment key={index}>
                 <MoviesRow
                   image={
-                    movie.poster_path && `${IMAGE_URL}${movie.poster_path}`
+                    movie.poster_path && `${BANNER_URL}${movie.backdrop_path}`
                   }
                   movieId={movie.id}
+                  title={movie.original_title}
+                  text={movie.overview}
                 />
               </React.Fragment>
             ))}
-        </Row>
+        {/* </Row> */}
 
-        {/* </div> */}
+      
 
       <hr/>
     <button className="btn btn-lg btn-light m-2">Load More</button>                  
