@@ -42,7 +42,7 @@ const Home = () => {
           <ImageComp
             image={`${BANNER_URL}${Movies[0].backdrop_path}`}
             title={Movies[0].original_title}
-            text={Movies[0].overview}
+            // text={Movies[0].overview}
           />
         )}
       </div>
@@ -65,7 +65,7 @@ const Home = () => {
                   }
                   movieId={movie.id}
                   title={movie.original_title}
-                  text={movie.overview}
+                 
                 />
               </React.Fragment>
             ))}
