@@ -2,9 +2,7 @@ const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');
-const dotenv = require('dotenv');
-const NODE_ENV = 'production';
-const MONGODB_URI = 'mongodb+srv://root:root@booksearchengine.nrwj6u3.mongodb.net/test'
+
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
