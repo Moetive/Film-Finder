@@ -69,7 +69,7 @@ function App() {
                 path="/profiles/:username" 
                 element={<Profile />}
               />
-               <Route exact path="/movie/:movieId" element={(MoviePage, null)} />
+               <Route exact path="/movie/:movieId" element={<MoviePage/>} />
             </Routes>
           </div>
           <Footer />

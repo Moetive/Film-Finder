@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react'
-import { API_URL, API_KEY } from '../components/config'
-// import { response } from 'express'
+import { API_KEY } from '../components/config'
+import { Navigate, useParams } from 'react-router-dom';
 
-function MoviePage(props) {
-  
+
+function MoviePage() {
+  const movieId = useParams()
   useEffect(() => {
-    const movieId = props.match.params.movieId
-
-    fetch(`https://api.themoviedb.org/3/movie/${movieId}/keywords?api_key=${API_KEY}`)
+    
+  
+    fetch(`https://api.themoviedb.org/3/movie/${movieId.movieId}/keywords?api_key=${API_KEY}`)
     .then(response => response.json())
     .then(response => {
       console.log(response)
