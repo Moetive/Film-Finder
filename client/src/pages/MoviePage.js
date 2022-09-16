@@ -10,16 +10,23 @@ function MoviePage() {
   const [favoriteMovies, { error }] = useMutation(FAVORITE_MOVIES);
   const movieId = useParams()
   function favorite(){
+    fetch(`https://api.themoviedb.org/3/movie/${movieId.movieId}?api_key=${API_KEY}&language=en-US`)
+    
+    .then(response => response.json())
+    .then(response => {
+      setMovie(response)
+    })
+    
     console.log(error)
     favoriteMovies({variables:{
-      "movieId": "21312",
-      "movieTitle": "213123",
-      "movieImage": "21312312",
+      "movieId": Movie.id,
+      "movieTitle": Movie.original_title,
+      "movieImage": Movie.backdrop_path,
       }})
 
   }
   useEffect(() => {
-    
+    const variable = {}
   
     fetch(`https://api.themoviedb.org/3/movie/${movieId.movieId}?api_key=${API_KEY}&language=en-US`)
     
