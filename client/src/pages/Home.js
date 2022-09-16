@@ -65,7 +65,7 @@ const Home = () => {
                   }
                   movieId={movie.id}
                   title={movie.original_title}
-                  // text={movie.overview}
+                 
                 />
               </React.Fragment>
             ))}
