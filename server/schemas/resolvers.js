@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Thought } = require('../models');
+const { User, Movies } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -48,21 +48,36 @@ const resolvers = {
 
       return { token, user };
     },
-    addThought: async (parent, { thoughtText }, context) => {
+    favoriteMovies: async (parent, args, context) => {
+    console.log(`dsafsdfsadfas`, args)
+
+     console.log(`dasfsdfsadf`, context.user._id)
+
       if (context.user) {
-        const thought = await Thought.create({
-          thoughtText,
-          thoughtAuthor: context.user.username,
-        });
-
-        await User.findOneAndUpdate(
+      try{
+        const movies = await Movies.create(args);
+        console.log(movies)
+        const user = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { thoughts: thought._id } }
+          { $push: { movies: movies._id } },
+        {
+          new:true
+        }
         );
+        console.log(user)
+      return movies;
+      }catch(err){
+        console.log(err)
+      }
 
-        return thought;
+        
       }
       throw new AuthenticationError('You need to be logged in!');
+        
+
+        
+  
+      
     },
     addComment: async (parent, { thoughtId, commentText }, context) => {
       if (context.user) {

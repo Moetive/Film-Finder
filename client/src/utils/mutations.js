@@ -23,6 +23,14 @@ export const ADD_USER = gql`
     }
   }
 `;
+export const FAVORITE_MOVIES = gql`
+mutation FavoriteMovies($movieId: ID!, $movieTitle: String!, $movieImage: String!) {
+  favoriteMovies(movieId: $movieId, movieTitle: $movieTitle, movieImage: $movieImage) {
+    movieId
+    movieTitle
+    movieImage
+  }
+}`;
 
 export const ADD_THOUGHT = gql`
   mutation addThought($thoughtText: String!) {

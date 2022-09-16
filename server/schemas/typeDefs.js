@@ -9,6 +9,12 @@ const typeDefs = gql`
     thoughts: [Thought]!
   }
 
+  type Movies {
+    movieId: ID
+    movieTitle: String
+    movieImage: String
+  }
+  
   type Thought {
     _id: ID
     thoughtText: String
@@ -40,6 +46,7 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    favoriteMovies(movieId: ID!, movieTitle: String!, movieImage: String!): Movies
     addThought(thoughtText: String!): Thought
     addComment(thoughtId: ID!, commentText: String!): Thought
     removeThought(thoughtId: ID!): Thought
@@ -48,3 +55,4 @@ const typeDefs = gql`
 `;
 
 module.exports = typeDefs;
+

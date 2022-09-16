@@ -2,11 +2,22 @@ import React, { useEffect, useState } from 'react'
 import { API_KEY, BANNER_URL, IMAGE_URL } from '../components/config'
 import { Navigate, useParams } from 'react-router-dom';
 import ImageComp from "../components/ImageComponent/ImageComp";
-import Favorite from '../components/FavoriteButton/Favorite';
+import { useMutation } from '@apollo/client';
+import { FAVORITE_MOVIES } from '../utils/mutations';
 
 function MoviePage() {
   const [Movie, setMovie] = useState([])
+  const [favoriteMovies, { error }] = useMutation(FAVORITE_MOVIES);
   const movieId = useParams()
+  function favorite(){
+    console.log(error)
+    favoriteMovies({variables:{
+      "movieId": "21312",
+      "movieTitle": "213123",
+      "movieImage": "21312312",
+      }})
+
+  }
   useEffect(() => {
     
   
@@ -28,7 +39,9 @@ function MoviePage() {
             text={Movie.overview}
           />
         )}
-        <Favorite/>
+        <button onClick={favorite} className="btn btn-lg btn-light m-2">
+  Favorite
+</button>
     
     </div>
   )
