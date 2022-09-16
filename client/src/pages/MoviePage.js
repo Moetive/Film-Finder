@@ -8,7 +8,8 @@ function MoviePage() {
   useEffect(() => {
     
   
-    fetch(`https://api.themoviedb.org/3/movie/${movieId.movieId}/keywords?api_key=${API_KEY}`)
+    fetch(`https://api.themoviedb.org/3/movie/${movieId.movieId}?api_key=${API_KEY}&language=en-US`)
+    
     .then(response => response.json())
     .then(response => {
       console.log(response)
