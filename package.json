@@ -26,5 +26,9 @@
     "mongoose": "^5.4.20",
     "react-redux": "^5.0.7",
     "socket.io": "^2.2.0"
-  }
+  },
+  "engines": {
+    "node": "16.17.0",
+    "npm": "8.15.0"
+    }
 }
