@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { API_KEY, BANNER_URL, IMAGE_URL } from '../components/config'
 import { Navigate, useParams } from 'react-router-dom';
 import ImageComp from "../components/ImageComponent/ImageComp";
+import Favorite from '../components/FavoriteButton/Favorite';
 
 function MoviePage() {
   const [Movie, setMovie] = useState([])
@@ -27,6 +28,7 @@ function MoviePage() {
             text={Movie.overview}
           />
         )}
+        <Favorite/>
     
     </div>
   )
