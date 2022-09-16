@@ -19,17 +19,12 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  movieId: {
-    type: String
-    
-  },
-  movieTitle: {
-    type: String
-    
-  },
-  movieImage:{
-    type: String
-  }
+  movies: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Movie',
+    },
+  ],
 });
 
 userSchema.pre('save', async function (next) {
