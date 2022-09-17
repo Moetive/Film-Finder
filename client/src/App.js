@@ -49,6 +49,7 @@ function App() {
           <Header />
           <div className="container">
             <Routes>
+            <Route path="/movie/:movieId" element={<MoviePage/>} />
               <Route 
                 path="/"
                 element={<Home />}
@@ -69,7 +70,6 @@ function App() {
                 path="/profiles/:username" 
                 element={<Profile />}
               />
-               <Route exact path="/movie/:movieId" element={<MoviePage/>} />
             </Routes>
           </div>
           <Footer />
