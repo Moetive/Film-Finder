@@ -2,7 +2,7 @@
 ## Film Finder.
 ------------------------------
 ## Project Description
-A full stack application that allows users to search for their favorite films. 
+A full stack application that allows users to view for trending films. 
 
 ## Languages, APIs, and Libraries Used
 </br>=======================
